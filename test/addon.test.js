@@ -15,13 +15,13 @@ describe('Slicker Algorithm', () => {
   describe('computeSlickerArea', () => {
     describe('When invoked with args (<0,0>, <1,0>, <0,1>)', () => {
       it('should return 0.5', () => {
-        const area = addon.computeSlickerArea([0,0,1,0,0,1]);
+        const area = addon.computeSlickerArea([0, 0, 1, 0, 0, 1]);
         expect(area).to.equal(0.5);
       });
-    })
+    });
     describe('When invoked with incorrect length arguments', () => {
       it('should throw "RangeError: Argument length must be even"', () => {
-        const invalid = addon.computeSlickerArea.bind(addon, [0,0,1,0,0]);
+        const invalid = addon.computeSlickerArea.bind(addon, [0, 0, 1, 0, 0]);
         expect(invalid).to.throw(RangeError);
       });
     });
@@ -31,5 +31,5 @@ describe('Slicker Algorithm', () => {
         expect(invalid).to.throw(TypeError);
       });
     });
-  })
+  });
 });

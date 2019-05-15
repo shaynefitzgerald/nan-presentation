@@ -7,7 +7,8 @@
     "test": "(npm run rebuild && mocha --require @babel/register)",
     "build": "(cd native && node-gyp configure build)",
     "rebuild": "(cd native && node-gyp clean configure build)",
-    "clean" : "(cd native && node-gyp clean"
+    "clean": "(cd native && node-gyp clean",
+    "lint" : "./node_modules/.bin/eslint src/**/*.js src/*.js test/*.js"
   },
   "author": "Shayne Fitzgerald",
   "license": "MIT",
@@ -22,6 +23,7 @@
     "@babel/register": "^7.4.4",
     "babel-plugin-module-resolver": "^3.2.0",
     "chai": "^4.2.0",
+    "eslint": "^5.16.0",
     "mocha": "^6.1.4"
   }
 }
