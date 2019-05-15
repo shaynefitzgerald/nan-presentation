@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#include "polygon.hpp"
+#include "Polygon.hpp"
 
 Polygon::Polygon(unsigned int sz) {
     this->sz = sz;

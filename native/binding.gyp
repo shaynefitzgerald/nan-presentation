@@ -2,10 +2,12 @@
     "targets": [
         {
         "include_dirs" : [
-            "<!(node -e \"require('nan')\")"
+            "<!(node -e \"require('nan')\")",
+            "polygon", "point", "line"
         ],
         "sources": [
-            "main.cpp", "polygon.hpp", "polygon.cpp"
+            "main.cpp",
+            "<!@(ls -1 **/*.cpp)"
         ],
         "target_name": "slicker-compute",
         }

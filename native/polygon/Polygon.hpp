@@ -1,11 +1,7 @@
-const int MAXPOLY = 200;
+#include "../point/Point.hpp"
+#include "../line/Line.hpp"
 
-class Point
-{
-    private:
-    public:
-        double x, y;
-};
+const int MAXPOLY = 200;
  
 class Polygon
 {
@@ -13,6 +9,8 @@ class Polygon
     public:
         Polygon(unsigned int);
         void addPoint(Point);
+        int lineCount();
+        Line* toLineArray();
         double area();
         int n;
         unsigned int sz;
