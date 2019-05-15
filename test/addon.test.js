@@ -4,7 +4,7 @@ let addon;
 
 describe('Slicker Algorithm', () => {
   beforeEach(() => {
-    addon = require('native/slicker-compute');
+    addon = require('native/addon');
   });
   describe('When module is initialized', () =>{
     it('should return an object "computeSlickerArea" defined as a function', () => {
@@ -30,6 +30,40 @@ describe('Slicker Algorithm', () => {
         const invalid = addon.computeSlickerArea.bind(addon, -1);
         expect(invalid).to.throw(TypeError);
       });
+    });
+  });
+});
+
+describe('Line Intersection', () => {
+  beforeEach(() => {
+    addon = require('native/addon');
+  });
+  describe('When module is initialized', () =>{
+    it('should return an object with a Line template exposed');
+  });
+  describe('When a Line is initialized without arguments', () => {
+    it('should return an object with properties x & y initialized to 0');
+  });
+  describe('Given two overlapping lines', () => {
+    let lineA, lineB;
+
+    beforeEach(() => {
+      lineA = addon.Line(0, 1, 1, 0);
+      lineB = addon.Line(0, 0, 1, 1);
+    });
+    describe('When Line::intersect is invoked on lineA with lineB', () => {
+      it('should return 1');
+    });
+  });
+  describe('Given two non-intersecting lines', () => {
+    let lineA, lineB;
+
+    beforeEach(() => {
+      lineA = addon.Line(0, 0, 1, 0);
+      lineB = addon.Line(0, 1, 1, 1);
+    });
+    describe('When Line::intersect is invoked on lineA with lineB', () => {
+      it('should return 0');
     });
   });
 });
