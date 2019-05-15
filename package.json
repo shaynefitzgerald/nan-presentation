@@ -1,0 +1,25 @@
+{
+  "name": "nan-presentation",
+  "version": "0.0.1",
+  "description": "Presentation of Basic NAN usage in node JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require @babel/register",
+    "build": "(cd native && node-gyp configure && node-gyp build)"
+  },
+  "author": "Shayne Fitzgerald",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.13.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}
