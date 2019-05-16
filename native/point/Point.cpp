@@ -41,7 +41,7 @@ NAN_MODULE_INIT(Point::Init) {
       Nan::New<v8::FunctionTemplate>(Point::New);
 
   tpl->SetClassName(Nan::New("Point").ToLocalChecked());
-  tpl->InstanceTemplate()->SetInternalFieldCount(2);
+  tpl->InstanceTemplate()->SetInternalFieldCount(1);
 
   constructor().Reset(Nan::GetFunction(tpl).ToLocalChecked());
 

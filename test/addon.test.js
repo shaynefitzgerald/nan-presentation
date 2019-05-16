@@ -53,11 +53,20 @@ describe('Line Intersection', () => {
   });
 
   describe('When a Line is initialized with two Point objects', () => {
+    let pointA, pointB, lineA, lineB;
+
+    beforeEach(() => {
+      pointA = new addon.Point(0, 1);
+      pointB = new addon.Point(1, 0);
+      lineA = new addon.Line(pointA, pointB);
+      lineB = new addon.Line(0, 0, 1, 1);
+    });
     it('should initialize OK', () => {
-      const pointA = new addon.Point(0, 1);
-      const pointB = new addon.Point(1, 0);
-      const line = new addon.Line(pointA, pointB);
-      expect(line).to.not.be.undefined;
+      expect(lineA).to.not.be.undefined;
+    });
+
+    it('should intersect with the line <0,0,1,1>', () => {
+      expect(lineA.intersects(lineB)).to.equal(1);
     });
   });
 
