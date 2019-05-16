@@ -15,7 +15,7 @@ int Line::intersects(Line *other) {
 
   int s1 = (y2 - y1) * p1 + (x1 - x2) * q1 + (x2 * y1 - x1 * y2);
 
-  if (s1) {
+  if (s1 <= 0) {
 
     int s2 = (y2 - y1) * p2 + (x1 - x2) * q2 + (x2 * y1 - x1 * y2);
 

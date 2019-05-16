@@ -1,6 +1,8 @@
 #include <nan.h>
 
-#include "Polygon.hpp"
+#include "point/Point.hpp"
+#include "line/Line.hpp"
+#include "polygon/Polygon.hpp"
 
 NAN_METHOD(SlickerAlgorithm) {
   if (!info[0]->IsArray()) {
@@ -32,15 +34,10 @@ NAN_METHOD(SlickerAlgorithm) {
 }
 
 NAN_MODULE_INIT(Init) {
-  Line::Init(target);
   Point::Init(target);
-
+  Line::Init(target);
   Nan::Set(target, Nan::New<v8::String>("computeSlickerArea").ToLocalChecked(),
            Nan::New<v8::FunctionTemplate>(SlickerAlgorithm)->GetFunction());
-  Nan::Set(target, Nan::New<v8::String>("Line").ToLocalChecked(),
-           Nan::New<v8::FunctionTemplate>(Line::New)->GetFunction());
-  Nan::Set(target, Nan::New<v8::String>("Point").ToLocalChecked(),
-           Nan::New<v8::FunctionTemplate>(Point::New)->GetFunction());
 }
 
 NODE_MODULE(addon, Init);

@@ -4,7 +4,7 @@
   "description": "Presentation of Basic NAN usage in node JS",
   "main": "index.js",
   "scripts": {
-    "test": "(npm run rebuild && mocha --require @babel/register)",
+    "test": "(npm run lint && mocha)",
     "build": "(cd native && node-gyp configure build)",
     "rebuild": "(cd native && node-gyp clean configure build)",
     "clean": "(cd native && node-gyp clean",

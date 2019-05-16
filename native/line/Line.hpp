@@ -21,8 +21,11 @@ public:
   }
 
   static NAN_METHOD(New) {
+    v8::Local<v8::FunctionTemplate> tpl =
+        Nan::New<v8::FunctionTemplate>(Point::New);
+
     if (info.IsConstructCall()) {
-      if (info.Length() > 2) {
+      if (!tpl->HasInstance(info[0])) {
         // using the raw number initializer
 
         for (int i = 0; i < 4; i++) {
@@ -45,10 +48,8 @@ public:
         info.GetReturnValue().Set(info.This());
       } else {
         // assume we're using the Point init, throw otherwise
-        v8::Local<v8::FunctionTemplate> tpl =
-            Nan::New<v8::FunctionTemplate>(Point::New);
 
-        if (!tpl->HasInstance(info[0]) || !tpl->HasInstance(info[1])) {
+        if (!tpl->HasInstance(info[1])) {
           Nan::ThrowTypeError(
               "Arguments are not native wrapped instances of Point object");
           return;
@@ -90,7 +91,7 @@ private:
   explicit Line(Point *a, Point *b) : a(a), b(b){};
   explicit Line(double x1, double y1, double x2, double y2)
       : a(new Point(x1, y1)), b(new Point(x2, y2)){};
-  ~Line();
+  ~Line(){};
 
   static NAN_METHOD(intersects) {
     Nan::MaybeLocal<v8::Object> arg = Nan::To<v8::Object>(info[0]);
