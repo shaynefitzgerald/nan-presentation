@@ -51,7 +51,17 @@ describe('Line Intersection', () => {
       expect(ctor).to.throw(TypeError);
     });
   });
-  describe('Given two overlapping lines', () => {
+
+  describe('When a Line is initialized with two Point objects', () => {
+    it('should initialize OK', () => {
+      const pointA = new addon.Point(0, 1);
+      const pointB = new addon.Point(1, 0);
+      const line = new addon.Line(pointA, pointB);
+      expect(line).to.not.be.undefined;
+    });
+  });
+
+  describe('Given two overlapping lines initalized from numbers', () => {
     let lineA, lineB;
 
     beforeEach(() => {
@@ -64,7 +74,7 @@ describe('Line Intersection', () => {
       });
     });
   });
-  describe('Given two non-intersecting lines', () => {
+  describe('Given two non-intersecting lines initalized from numbers', () => {
     let lineA, lineB;
 
     beforeEach(() => {
