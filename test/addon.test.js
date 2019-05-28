@@ -42,6 +42,9 @@ describe('Line Intersection', () => {
     it('should return an object with a Line template exposed', () => {
       expect(addon.Line).to.not.be.undefined;
     });
+    it('should return an object with a Point template exposed', () => {
+      expect(addon.Point).to.not.be.undefined;
+    });
   });
   describe('When a Line is initialized without arguments', () => {
     it('should error with TypeError: Arguments must not be undefined', () => {

@@ -14,7 +14,7 @@ public:
   Point *a;
   Point *b;
   static NAN_METHOD(intersects);
-    static inline Nan::Persistent<v8::FunctionTemplate> &tpl() {
+  static inline Nan::Persistent<v8::FunctionTemplate> &tpl() {
     static Nan::Persistent<v8::FunctionTemplate> tpl;
     return tpl;
   }
